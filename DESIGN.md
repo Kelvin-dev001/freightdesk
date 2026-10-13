@@ -67,11 +67,28 @@ The scale follows the classic sequence: 12 / 14 / 16 / 17 (body) / 21 / 24 / 36 
 
 The page borrows from the paperwork a clearing agent handles every day: a job file with a document checklist, a ledger with a double rule under the totals, a trip sheet, a delivery note with a "Signed" line, a gate pass with field labels, and rubber stamps.
 
-**The one bold move:** the hero's job file **HFD/0142/2026**. When the page loads, a rubber stamp reading "6/8 RECEIVED" lands once on its checklist. That is the only motion on the page that the visitor didn't trigger, and it is static under `prefers-reduced-motion`. Everything else is quiet: paper, ink, ruled lines, and the red-orange saved for the buttons and stamps.
+**The one bold move:** the hero's job file **HFD/0142/2026**. When the page loads, its documents come in one by one, the progress bar fills, and a rubber stamp reading "6/8 RECEIVED" lands on the checklist. Everything else is quiet: paper, ink, ruled lines, and the red-orange saved for the buttons and stamps.
+
+## Motion
+
+Every movement acts out something that happens to paperwork. None of it is decoration. Under `prefers-reduced-motion` all of it is off and the page shows its final state.
+
+| Where | What moves | Trigger |
+|---|---|---|
+| Hero job file | Statuses arrive row by row, then the progress bar fills, then the stamp lands (about 1.9 s in all) | Page load |
+| How a job moves | Each step box lights up yellow in order and the line runs on to the next: all 8 in sequence side by side, or one by one as they scroll in when stacked on a phone | Scrolls into view |
+| Outstanding (screen A), Costs logged (screen B), ODPC | The stamp lands, as in the hero | Scrolls into view |
+| Book demo and line buttons | Lift with a hard ink shadow, press flat on click | Hover, click |
+| Product screens and the delivery note | Straighten and lift off the desk | Hover |
+| Who it's for | The new panel's lines are written in from top to bottom | Tab switch |
+| Module order sheet | The tick springs in, and the module list in the WhatsApp message flashes like a highlighter | Tick |
+| FAQ | The plus turns into a minus and the answer slides open | Open |
+
+Content is never hidden behind a reveal. Only stamps and the track's fill wait for the scroll, and only when JavaScript and IntersectionObserver are available. Text is always visible.
 
 ## Sections
 
-1. **Top bar.** Mark plus "Hornbill Freight Desk" set in Barlow Condensed, and a Book demo button. On mobile, a "Book demo on WhatsApp" bar is pinned to the bottom of the screen once the visitor scrolls past the hero.
+1. **Top bar.** Mark plus "Hornbill Freight Desk" set in Barlow Condensed, and a Book demo button. From tablet width up the top bar stays pinned while scrolling. On mobile it scrolls away, and a "Book demo on WhatsApp" bar is pinned to the bottom of the screen once the visitor scrolls past the hero. Either way, a Book demo button is always on screen.
 2. **Hero.** Left-aligned headline "Every BL, document and shilling, in one job file." and a sub-line naming the three audiences, ending "Built in Kenya". Two CTAs, Book demo and See how it works. On the right sits screen A in a slightly tilted browser frame.
 3. **Who it's for.** Three tabs styled as file dividers: a vertical list on desktop, a stacked selector on mobile. Each panel is a ledger sheet with two columns, "Now" (the pain) and "With Freight Desk" (the payoff), plus its own prefilled Book demo link.
 4. **How a job moves.** A charcoal band. Eight numbered steps on a yellow track: horizontal on desktop, 4 × 2 on tablet, vertical on mobile.
