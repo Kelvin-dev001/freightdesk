@@ -6,3 +6,6 @@ _review/
 .playwright-mcp/
 node_modules/
 .vercel/
+
+.vercel
+.env*
