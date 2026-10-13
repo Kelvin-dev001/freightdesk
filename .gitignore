@@ -1,0 +1,8 @@
+# Build brief: contains real job references, kept out of this public repo
+claude.md
+
+# Local review and tooling output
+_review/
+.playwright-mcp/
+node_modules/
+.vercel/
